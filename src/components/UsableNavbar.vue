@@ -13,14 +13,14 @@
     <span class="font-weight-bold title contact">CONTACT US</span>
     <v-dialog
       v-model="dialog"
-      width="500"
+      width="600"
     >
 
       
 
       <v-card>
         <v-card-title
-          class="headline grey"
+          class="headline grey justify-center"
           primary-title
         >
           Log Into <span><img class="ml-2" src="../assets/usable_logo.svg" alt=""></span>
@@ -29,18 +29,43 @@
         <v-card-text>
           <input type="text" placeholder="Email Address">
           <input type="text" placeholder="Password">
+          <v-layout row>
+            <v-flex xs6>
+                       <v-checkbox
+            class="pl-2"
+            v-model="checkbox"
+            :error-messages="checkboxErrors"
+            label="Remember Me"
+            required
+            @change="$v.checkbox.$touch()"
+            @blur="$v.checkbox.$touch()"
+          ></v-checkbox>
+            </v-flex>
+            <v-flex class="d-flex text-xs-right pr-2" xs6 align-center>
+              <span class="forgot">Forgot Password</span>
+            </v-flex>
+          </v-layout>
         </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-actions>
+        <v-card-actions class="d-block text-xs-center">
           <v-spacer></v-spacer>
           <v-btn
+            style="border-radius: 20px;"
+            class="pr-5 pl-5 mt-3"
             color="cyan"
-            flat
             @click="dialog = false"
           >
             Log In
+          </v-btn>
+          <p class="mt-3 mb-3">or</p>
+          <v-btn
+          style="border-radius: 20px;"
+          class="pr-5 pl-5 mb-3"
+          color="grey"
+          >
+          CREATE NEW ACCOUNT
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -66,8 +91,9 @@ export default {
     cursor: pointer;
   }
   
-  .login:hover, .contact:hover {
+  .login:hover, .contact:hover, .forgot:hover {
     color: #00bcd4;
+    cursor: pointer;
   }
 
   input {
