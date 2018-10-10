@@ -6,13 +6,23 @@
 
       <v-flex xs12 class="text-sm-center">
         <input class="mt-4" type="text" placeholder="Enter Site Link...">
-        <v-btn class="d-block ma-auto mt-3 pl-5 pr-5" round color="cyan" @click="selectedComponent = 'UsableForm'">CONTINUE<i class="ml-2 fas fa-chevron-right"></i></v-btn>
+        <v-btn class="d-block ma-auto mt-3 pl-5 pr-5" round color="cyan" @click="componentChange">CONTINUE<i class="ml-2 fas fa-chevron-right"></i></v-btn>
         <p class="pt-5">New to <span class=" font-italic font-weight-medium">usable</span>? <span style="text-decoration: underline;">Click Here</span> to learn how to use the platform!</p>
       </v-flex>
     </v-layout>
 </template>
 
 <script>
+  export default {
+    props: ['selectedComponent'],
+    methods: { 
+      componentChange() {
+      this.selectedComponent = 'UsableForm';
+      this.$emit('changeComponent', this.selectedComponent);
+    }
+  }
+  }
+
 
 </script>
 

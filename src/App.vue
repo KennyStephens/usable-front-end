@@ -4,7 +4,7 @@
       <!-- Navbar -->
       <usable-navbar />
       <!-- Main Section  -->
-      <component :is="selectedComponent"></component>
+      <component :is="selectedComponent" @changeComponent="selectedComponent = $event"></component>
       <!-- Footer -->
       <usable-footer />
      
