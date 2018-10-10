@@ -31,15 +31,10 @@
           <input type="text" placeholder="Password">
           <v-layout row>
             <v-flex xs6>
-                       <v-checkbox
-            class="pl-2"
-            v-model="checkbox"
-            :error-messages="checkboxErrors"
-            label="Remember Me"
-            required
-            @change="$v.checkbox.$touch()"
-            @blur="$v.checkbox.$touch()"
-          ></v-checkbox>
+        <v-checkbox 
+        class="pl-2"
+        :label="`Remember Me`" 
+        v-model="checkbox"></v-checkbox>
             </v-flex>
             <v-flex class="d-flex text-xs-right pr-2" xs6 align-center>
               <span class="forgot">Forgot Password</span>
@@ -59,7 +54,7 @@
           >
             Log In
           </v-btn>
-          <p class="mt-3 mb-3">or</p>
+          <p class="or">or</p>
           <v-btn
           style="border-radius: 20px;"
           class="pr-5 pl-5 mb-3"
@@ -80,7 +75,8 @@
 export default {
   data() {
     return {
-      dialog: false
+      dialog: false,
+      checkbox: false
     }
   }
 }
@@ -108,6 +104,22 @@ export default {
 
   ::placeholder {
     color: #fff;
+  }
+
+  .or {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin: 15px 0;
+  }
+
+  .or::before, .or::after {
+    position: absolute; 
+    width: 35%;
+    height: 1px;
+    top: 60%;
+    background-color: #fff;
+    content: '';
   }
 </style>
 
