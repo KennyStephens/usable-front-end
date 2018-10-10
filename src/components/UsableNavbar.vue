@@ -113,13 +113,13 @@ export default {
     margin: 15px 0;
   }
 
-  .or::before, .or::after {
+  /* .or::before, .or::after {
     position: absolute; 
     width: 35%;
     height: 1px;
     top: 60%;
     background-color: #fff;
     content: '';
-  }
+  } */
 </style>
 
