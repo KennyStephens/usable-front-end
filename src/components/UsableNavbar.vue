@@ -59,6 +59,7 @@
           style="border-radius: 20px;"
           class="pr-5 pl-5 mb-3"
           color="grey"
+          @click="dialog = false"
           >
           CREATE NEW ACCOUNT
           </v-btn>
